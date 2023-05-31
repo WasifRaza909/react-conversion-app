@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 function ConversionForm() {
-  const [convertFromCurrency, setConvertFromCurrency] = useState("");
-  const [convertToCurrencyOne, setConvertToCurrencyOne] = useState("");
-  const [convertToCurrencyTwo, setConvertToCurrencyTwo] = useState("");
+  const [convertFromCurrency, setConvertFromCurrency] = useState("USD");
+  const [convertToCurrencyOne, setConvertToCurrencyOne] = useState("USD");
+  const [convertToCurrencyTwo, setConvertToCurrencyTwo] = useState("USD");
 
-  const [convertFromInput, setConvertFromInput] = useState(0);
+  const [convertFromInput, setConvertFromInput] = useState();
   const [convertToInputOne, setConvertToInputOne] = useState(0);
   const [convertToInputTwo, setConvertToInputTwo] = useState(0);
 
@@ -43,11 +43,15 @@ function ConversionForm() {
         className="d-flex flex-column justify-content-center align-items-center"
       >
         <div className="d-flex flex-column">
+          <label className="" htmlFor="">
+            Select currency you want to convert from
+          </label>
+
           <select
             value={convertFromCurrency}
             onChange={(e) => setConvertFromCurrency(e.target.value)}
-            name=""
-            id=""
+            className="form-select"
+            aria-label="Default select example"
           >
             <option>Select</option>
             {currencies.map((currency, index) => (
@@ -56,15 +60,20 @@ function ConversionForm() {
               </option>
             ))}
           </select>
-          <label htmlFor="">Add Currency you want to convert</label>
           <input
+            className="mt-2 form-control"
+            placeholder="Type amount..."
             value={convertFromInput}
             onChange={(e) => setConvertFromInput(e.target.value)}
             type="number"
+            required
+            min="1"
+            step="any"
           />
         </div>
-        <div className="d-flex mt-3">
+        <div className="d-flex mt-3 ">
           <div className="w-50 d-flex flex-column">
+            {/* <label className="" htmlFor="">Select currency you want to convert to</label>
             <select
               value={convertToCurrencyOne}
               onChange={(e) => setConvertToCurrencyOne(e.target.value)}
@@ -77,21 +86,15 @@ function ConversionForm() {
                   {currency}
                 </option>
               ))}
-            </select>
-
-            <label htmlFor="">Add Currency you want to convert to</label>
-            <input
-              value={convertToInputOne}
-              onChange={(e) => setConvertToInputOne(e.target.value)}
-              type="number"
-            />
-          </div>
-          <div className="w-50 d-flex flex-column mx-5">
+            </select> */}
+            <label className="" htmlFor="">
+              Select currency you want to convert to
+            </label>
             <select
-              value={convertToCurrencyTwo}
-              onChange={(e) => setConvertToCurrencyTwo(e.target.value)}
-              name=""
-              id=""
+              value={convertToCurrencyOne}
+              onChange={(e) => setConvertToCurrencyOne(e.target.value)}
+              className="form-select"
+              aria-label="Default select example"
             >
               <option>Select</option>
               {currencies.map((currency, index) => (
@@ -100,15 +103,30 @@ function ConversionForm() {
                 </option>
               ))}
             </select>
-            <label htmlFor="">Add Currency you want to convert to</label>
-            <input
-              value={convertToInputTwo}
-              onChange={(e) => setConvertToInputTwo(e.target.value)}
-              type="number"
-            />
+
+            <div className="form-control  mt-2">{convertToInputOne}</div>
+          </div>
+          <div className="w-50 d-flex flex-column mx-5">
+            <label className="" htmlFor="">
+              Select currency you want to convert to
+            </label>
+            <select
+              value={convertToCurrencyTwo}
+              onChange={(e) => setConvertToCurrencyTwo(e.target.value)}
+              className="form-select"
+              aria-label="Default select example"
+            >
+              <option>Select</option>
+              {currencies.map((currency, index) => (
+                <option value={currency} key={index}>
+                  {currency}
+                </option>
+              ))}
+            </select>
+            <div className="form-control mt-2">{convertToInputTwo}</div>
           </div>
         </div>
-        <button type="submit" className="btn btn-primary mt-4">
+        <button type="submit" className="">
           Convert
         </button>
       </form>

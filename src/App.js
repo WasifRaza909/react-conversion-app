@@ -3,8 +3,8 @@ import ConversionForm from "./components/ConversionForm";
 function App() {
   return (
     <div className="app bg-light">
-      <div className="container bg-white p-5">
-        <h1 className="text-center">Currency Converer Planet01</h1>
+      <div className="container bg">
+        <h1 className="fw-bold">Currency Converter App</h1>
 
         <ConversionForm />
       </div>

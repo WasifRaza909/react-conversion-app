@@ -1,3 +1,73 @@
 .app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
+}
+
+.bg {
+  background-color: #fefefe;
+  box-shadow: 0px 0px 20px #e6e6e6;
+  padding: 5rem;
+  border-radius: 10px;
+  /* height: 600px;
+  width: 1000px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: #3e6edf !important;
+  text-align: center;
+  font-weight: 600;
+  font-size: 44px;
+}
+
+input:focus {
+  box-shadow: none !important;
+  cursor: pointer;
+}
+
+select {
+  background-color: #f5f5f5 !important;
+  border: none !important;
+  color: #3e6edf !important;
+  width: 300px !important;
+  height: 40px;
+  margin-top: 8px;
+  font-weight: 500 !important;
+  cursor: pointer;
+}
+
+select:focus {
+  box-shadow: none !important;
+}
+
+select i {
+  color: #3e6edf !important;
+}
+
+select option {
+  border-radius: 0px !important;
+  padding: 1rem 0;
+  cursor: pointer !important;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #3e6edf;
+  margin-top: 1rem;
+}
+
+button {
+  background-color: #3e6edf;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 2rem;
+  border-radius: 6px;
+  margin-top: 2rem;
+  margin-right: 3rem;
 }
